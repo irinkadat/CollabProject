@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		8CAB4F762BF73B5F0095874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F752BF73B5F0095874F /* AppDelegate.swift */; };
 		8CAB4F782BF73B5F0095874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */; };
-		8CAB4F7A2BF73B5F0095874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F792BF73B5F0095874F /* ViewController.swift */; };
 		8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F7E2BF73B610095874F /* Assets.xcassets */; };
 		8CAB4F822BF73B610095874F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F812BF73B610095874F /* Base */; };
 		8CAB4F952BF73C7B0095874F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F942BF73C7B0095874F /* RootViewController.swift */; };
@@ -30,7 +29,6 @@
 		8CAB4F722BF73B5F0095874F /* CollabProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollabProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB4F752BF73B5F0095874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8CAB4F792BF73B5F0095874F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8CAB4F7E2BF73B610095874F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CAB4F812BF73B610095874F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CAB4F832BF73B610095874F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				8CAB4F8B2BF73BB50095874F /* Resources */,
 				8CAB4F8A2BF73BA50095874F /* Supporting */,
 				8CAB4F892BF73B990095874F /* App */,
-				8CAB4F792BF73B5F0095874F /* ViewController.swift */,
 			);
 			path = CollabProject;
 			sourceTree = "<group>";
@@ -271,7 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CAB4F7A2BF73B5F0095874F /* ViewController.swift in Sources */,
 				8CAB4FA52BF73EF20095874F /* AirQualityViewController.swift in Sources */,
 				8CAB4FA92BF73F140095874F /* WeatherViewModel.swift in Sources */,
 				8CAB4F762BF73B5F0095874F /* AppDelegate.swift in Sources */,
