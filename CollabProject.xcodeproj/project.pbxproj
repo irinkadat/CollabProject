@@ -29,6 +29,7 @@
 		8CD35A612BF7884300E9D7E4 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A602BF7884300E9D7E4 /* Species.swift */; };
 		8CD35A632BF7886000E9D7E4 /* SolarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A622BF7886000E9D7E4 /* SolarData.swift */; };
 		8CD35A652BF7886F00E9D7E4 /* PopulationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A642BF7886F00E9D7E4 /* PopulationData.swift */; };
+		A9E33BA32BF7A3E3004F9CA4 /* FiraGO-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		8CD35A602BF7884300E9D7E4 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		8CD35A622BF7886000E9D7E4 /* SolarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarData.swift; sourceTree = "<group>"; };
 		8CD35A642BF7886F00E9D7E4 /* PopulationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationData.swift; sourceTree = "<group>"; };
+		A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		8CAB4F8B2BF73BB50095874F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */,
 				8CAB4F7E2BF73B610095874F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -276,6 +279,7 @@
 			files = (
 				8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */,
 				8CAB4F822BF73B610095874F /* Base in Resources */,
+				A9E33BA32BF7A3E3004F9CA4 /* FiraGO-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
