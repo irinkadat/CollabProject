@@ -10,9 +10,20 @@
 		8CAB4F762BF73B5F0095874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F752BF73B5F0095874F /* AppDelegate.swift */; };
 		8CAB4F782BF73B5F0095874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */; };
 		8CAB4F7A2BF73B5F0095874F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F792BF73B5F0095874F /* ViewController.swift */; };
-		8CAB4F7D2BF73B5F0095874F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F7C2BF73B5F0095874F /* Base */; };
 		8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F7E2BF73B610095874F /* Assets.xcassets */; };
 		8CAB4F822BF73B610095874F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F812BF73B610095874F /* Base */; };
+		8CAB4F952BF73C7B0095874F /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F942BF73C7B0095874F /* RootViewController.swift */; };
+		8CAB4F972BF73E040095874F /* PopulationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F962BF73E040095874F /* PopulationViewController.swift */; };
+		8CAB4F9B2BF73E230095874F /* SolarResourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F9A2BF73E230095874F /* SolarResourceViewController.swift */; };
+		8CAB4F9F2BF73E460095874F /* SpecieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F9E2BF73E460095874F /* SpecieViewController.swift */; };
+		8CAB4FA32BF73E740095874F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FA22BF73E740095874F /* WeatherViewController.swift */; };
+		8CAB4FA52BF73EF20095874F /* AirQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FA42BF73EF20095874F /* AirQualityViewController.swift */; };
+		8CAB4FA72BF73F040095874F /* AirQualityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FA62BF73F040095874F /* AirQualityViewModel.swift */; };
+		8CAB4FA92BF73F140095874F /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FA82BF73F140095874F /* WeatherViewModel.swift */; };
+		8CAB4FAB2BF73FF00095874F /* SpecieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FAA2BF73FF00095874F /* SpecieViewModel.swift */; };
+		8CAB4FAD2BF740060095874F /* SolarResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FAC2BF740060095874F /* SolarResourceViewModel.swift */; };
+		8CAB4FAF2BF740190095874F /* PopulationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4FAE2BF740190095874F /* PopulationViewModel.swift */; };
+		8CAB4FB22BF742670095874F /* NetworkServicePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 8CAB4FB12BF742670095874F /* NetworkServicePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +31,20 @@
 		8CAB4F752BF73B5F0095874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8CAB4F792BF73B5F0095874F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8CAB4F7C2BF73B5F0095874F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8CAB4F7E2BF73B610095874F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8CAB4F812BF73B610095874F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CAB4F832BF73B610095874F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CAB4F942BF73C7B0095874F /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		8CAB4F962BF73E040095874F /* PopulationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationViewController.swift; sourceTree = "<group>"; };
+		8CAB4F9A2BF73E230095874F /* SolarResourceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarResourceViewController.swift; sourceTree = "<group>"; };
+		8CAB4F9E2BF73E460095874F /* SpecieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieViewController.swift; sourceTree = "<group>"; };
+		8CAB4FA22BF73E740095874F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		8CAB4FA42BF73EF20095874F /* AirQualityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityViewController.swift; sourceTree = "<group>"; };
+		8CAB4FA62BF73F040095874F /* AirQualityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityViewModel.swift; sourceTree = "<group>"; };
+		8CAB4FA82BF73F140095874F /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		8CAB4FAA2BF73FF00095874F /* SpecieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecieViewModel.swift; sourceTree = "<group>"; };
+		8CAB4FAC2BF740060095874F /* SolarResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarResourceViewModel.swift; sourceTree = "<group>"; };
+		8CAB4FAE2BF740190095874F /* PopulationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CAB4FB22BF742670095874F /* NetworkServicePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +78,121 @@
 		8CAB4F742BF73B5F0095874F /* CollabProject */ = {
 			isa = PBXGroup;
 			children = (
-				8CAB4F752BF73B5F0095874F /* AppDelegate.swift */,
-				8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */,
+				8CAB4FB32BF7429E0095874F /* Extentions */,
+				8CAB4F8D2BF73BF20095874F /* Models */,
+				8CAB4F8C2BF73BE10095874F /* Scenes */,
+				8CAB4F8B2BF73BB50095874F /* Resources */,
+				8CAB4F8A2BF73BA50095874F /* Supporting */,
+				8CAB4F892BF73B990095874F /* App */,
 				8CAB4F792BF73B5F0095874F /* ViewController.swift */,
-				8CAB4F7B2BF73B5F0095874F /* Main.storyboard */,
-				8CAB4F7E2BF73B610095874F /* Assets.xcassets */,
-				8CAB4F802BF73B610095874F /* LaunchScreen.storyboard */,
-				8CAB4F832BF73B610095874F /* Info.plist */,
 			);
 			path = CollabProject;
+			sourceTree = "<group>";
+		};
+		8CAB4F892BF73B990095874F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F752BF73B5F0095874F /* AppDelegate.swift */,
+				8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8CAB4F8A2BF73BA50095874F /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F832BF73B610095874F /* Info.plist */,
+				8CAB4F802BF73B610095874F /* LaunchScreen.storyboard */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		8CAB4F8B2BF73BB50095874F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F7E2BF73B610095874F /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8CAB4F8C2BF73BE10095874F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F932BF73C480095874F /* RootView */,
+				8CAB4F922BF73C360095874F /* Population */,
+				8CAB4F912BF73C2F0095874F /* SolarResource */,
+				8CAB4F902BF73C260095874F /* Specie */,
+				8CAB4F8F2BF73C1E0095874F /* Weather */,
+				8CAB4F8E2BF73C0F0095874F /* AirQuality */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		8CAB4F8D2BF73BF20095874F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8CAB4F8E2BF73C0F0095874F /* AirQuality */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4FA42BF73EF20095874F /* AirQualityViewController.swift */,
+				8CAB4FA62BF73F040095874F /* AirQualityViewModel.swift */,
+			);
+			path = AirQuality;
+			sourceTree = "<group>";
+		};
+		8CAB4F8F2BF73C1E0095874F /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4FA22BF73E740095874F /* WeatherViewController.swift */,
+				8CAB4FA82BF73F140095874F /* WeatherViewModel.swift */,
+			);
+			path = Weather;
+			sourceTree = "<group>";
+		};
+		8CAB4F902BF73C260095874F /* Specie */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F9E2BF73E460095874F /* SpecieViewController.swift */,
+				8CAB4FAA2BF73FF00095874F /* SpecieViewModel.swift */,
+			);
+			path = Specie;
+			sourceTree = "<group>";
+		};
+		8CAB4F912BF73C2F0095874F /* SolarResource */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F9A2BF73E230095874F /* SolarResourceViewController.swift */,
+				8CAB4FAC2BF740060095874F /* SolarResourceViewModel.swift */,
+			);
+			path = SolarResource;
+			sourceTree = "<group>";
+		};
+		8CAB4F922BF73C360095874F /* Population */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F962BF73E040095874F /* PopulationViewController.swift */,
+				8CAB4FAE2BF740190095874F /* PopulationViewModel.swift */,
+			);
+			path = Population;
+			sourceTree = "<group>";
+		};
+		8CAB4F932BF73C480095874F /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB4F942BF73C7B0095874F /* RootViewController.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		8CAB4FB32BF7429E0095874F /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +211,9 @@
 			dependencies = (
 			);
 			name = CollabProject;
+			packageProductDependencies = (
+				8CAB4FB12BF742670095874F /* NetworkServicePackage */,
+			);
 			productName = CollabProject;
 			productReference = 8CAB4F722BF73B5F0095874F /* CollabProject.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +242,9 @@
 				Base,
 			);
 			mainGroup = 8CAB4F692BF73B5F0095874F;
+			packageReferences = (
+				8CAB4FB02BF742670095874F /* XCRemoteSwiftPackageReference "FetchingAPI_Package" */,
+			);
 			productRefGroup = 8CAB4F732BF73B5F0095874F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +261,6 @@
 			files = (
 				8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */,
 				8CAB4F822BF73B610095874F /* Base in Resources */,
-				8CAB4F7D2BF73B5F0095874F /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +272,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CAB4F7A2BF73B5F0095874F /* ViewController.swift in Sources */,
+				8CAB4FA52BF73EF20095874F /* AirQualityViewController.swift in Sources */,
+				8CAB4FA92BF73F140095874F /* WeatherViewModel.swift in Sources */,
 				8CAB4F762BF73B5F0095874F /* AppDelegate.swift in Sources */,
+				8CAB4FAD2BF740060095874F /* SolarResourceViewModel.swift in Sources */,
+				8CAB4F9F2BF73E460095874F /* SpecieViewController.swift in Sources */,
+				8CAB4F972BF73E040095874F /* PopulationViewController.swift in Sources */,
+				8CAB4FA72BF73F040095874F /* AirQualityViewModel.swift in Sources */,
+				8CAB4F952BF73C7B0095874F /* RootViewController.swift in Sources */,
+				8CAB4FAF2BF740190095874F /* PopulationViewModel.swift in Sources */,
 				8CAB4F782BF73B5F0095874F /* SceneDelegate.swift in Sources */,
+				8CAB4F9B2BF73E230095874F /* SolarResourceViewController.swift in Sources */,
+				8CAB4FA32BF73E740095874F /* WeatherViewController.swift in Sources */,
+				8CAB4FAB2BF73FF00095874F /* SpecieViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8CAB4F7B2BF73B5F0095874F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8CAB4F7C2BF73B5F0095874F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8CAB4F802BF73B610095874F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,10 +430,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQNA3Y5XC9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CollabProject/Info.plist;
+				INFOPLIST_FILE = CollabProject/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -322,10 +457,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FQNA3Y5XC9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CollabProject/Info.plist;
+				INFOPLIST_FILE = CollabProject/Supporting/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -363,6 +497,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8CAB4FB02BF742670095874F /* XCRemoteSwiftPackageReference "FetchingAPI_Package" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tamokakhidze/FetchingAPI_Package";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8CAB4FB12BF742670095874F /* NetworkServicePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CAB4FB02BF742670095874F /* XCRemoteSwiftPackageReference "FetchingAPI_Package" */;
+			productName = NetworkServicePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8CAB4F6A2BF73B5F0095874F /* Project object */;
 }
