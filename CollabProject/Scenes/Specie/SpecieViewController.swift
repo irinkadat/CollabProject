@@ -8,23 +8,17 @@
 import UIKit
 
 class SpecieViewController: UIViewController {
-    //MARK: Properties:
+    
+    //MARK: - Properties
+    
     var button = UIButton()
-    
     var titleLabel = UILabel()
-    
     var cityTextField = UITextField()
-    
     var speciesName = UILabel()
-    
     var speciesAncestry = UILabel()
-    
     var speciesPhoto = UIImageView()
-    
     var speciesWiki = UILabel()
-    
     var errorLabel = UILabel()
-    
     let imageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -32,101 +26,67 @@ class SpecieViewController: UIViewController {
         image.image = UIImage(named: "species")
         return image
     }()
-    
     private var viewModel = SpecieViewModel()
     
-    //MARK: Lifecycle
+    //MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundColor")
         setupUi()
         bindViewModel()
-        button.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
+        button.addAction(UIAction(handler: { [weak self] _ in
+            self?.fetchData()
+        }), for: .touchUpInside)
     }
     
-    //MARK: Functions
+    //MARK: - Functions
+    
     private func setupUi() {
-        cityTextField = configureTextField(placeholder: "Enter City", topAnchor: view.topAnchor, constant: 200)
-        configureButton()
-        configureLabel(titleLabel, topAnchor: view.topAnchor, constant: 100, text: "Species Data", textSize: 44)
-        titleLabel.textColor = .white
-        configureLabel(speciesName, topAnchor: button.bottomAnchor, constant: 8, text: "Specie Name", textSize: 15)
-        configureLabel(speciesAncestry, topAnchor: speciesName.bottomAnchor, constant: 8, text: "Info Author", textSize: 15)
-        configureLabel(speciesWiki, topAnchor: speciesAncestry.bottomAnchor, constant: 8, text: "Wikipedia Url", textSize: 15)
-        configureImage()
-        configureLabel(errorLabel, topAnchor: imageView.bottomAnchor, constant: 8, text: "", textSize: 10)
+        CustomComponents.configureTextField(textField: cityTextField, placeholder: "Enter City")
+        CustomComponents.configureButton(button: button)
+        CustomComponents.configureLabel(titleLabel, textSize: 44)
+        titleLabel.text = "Species Data"
+        CustomComponents.configureLabel(speciesName, textSize: 15)
+        speciesName.text = "Specie Name"
+        CustomComponents.configureLabel(speciesAncestry, textSize: 15)
+        speciesAncestry.text = "Info Author"
+        CustomComponents.configureLabel(speciesWiki, textSize: 15)
+        speciesWiki.text = "Wikipedia Url"
+        CustomComponents.configureLabel(errorLabel, textSize: 10)
+        errorLabel.text = ""
+        addViews()
     }
     
-    private func configureTextField(placeholder: String, topAnchor: NSLayoutYAxisAnchor, constant: CGFloat) -> UITextField {
-        let textField = UITextField()
-        
-        view.addSubview(textField)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        textField.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.lightGray,
-            .font: UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
-        ]
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
-        
-        textField.backgroundColor = UIColor(named: "inputTextFieldColor")
-        textField.textColor = .lightGray
-        textField.layer.cornerRadius = 10
-        textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = UIColor.systemGray.cgColor
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-        
-        textField.font = UIFont(name: "FiraGO-Medium", size: 14)
-        
-        return textField
-    }
-    
-    
-    private func configureLabel(_ label: UILabel, topAnchor: NSLayoutYAxisAnchor, constant: CGFloat, text: String = "", textSize: Int = 14) {
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        label.text = text
-        label.textColor = .white
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.font = UIFont(name: "FiraGO-Medium", size: CGFloat(textSize))
-    }
-    
-    private func configureButton() {
+    func addViews() {
+        view.addSubview(cityTextField)
         view.addSubview(button)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 20).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        
-        button.backgroundColor = UIColor(named: "buttonColor")
-        button.setTitle("Get Species Data", for: .normal)
-        button.layer.cornerRadius = 10
-        
-        button.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: 14)
-        
-        button.layer.shadowColor = UIColor(named: "buttonColor")?.cgColor
-        button.layer.shadowOpacity = 0.32
-        button.layer.shadowOffset = CGSize(width: 0, height: 3.77)
-        button.layer.shadowRadius = 11.32 / 2.0
+        view.addSubview(speciesWiki)
+        view.addSubview(titleLabel)
+        view.addSubview(speciesName)
+        view.addSubview(speciesAncestry)
+        view.addSubview(imageView)
+        view.addSubview(errorLabel)
+        configureImage()
+        NSLayoutConstraint.activate([
+            cityTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
+            cityTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            button.topAnchor.constraint(equalTo: cityTextField.bottomAnchor, constant: 20),
+            speciesName.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 20),
+            speciesName.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            speciesAncestry.topAnchor.constraint(equalTo: speciesName.bottomAnchor, constant: 8),
+            speciesAncestry.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            speciesWiki.topAnchor.constraint(equalTo: speciesAncestry.bottomAnchor, constant: 8),
+            speciesWiki.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            errorLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 8),
+            errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     private func configureImage() {
-        view.addSubview(imageView)
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: speciesWiki.bottomAnchor, constant: 8),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
@@ -157,7 +117,7 @@ class SpecieViewController: UIViewController {
          }
      }
 
-     @objc private func fetchData() {
+    private func fetchData() {
          guard let cityName = cityTextField.text, !cityName.isEmpty else {
              errorLabel.text = "Please enter a city name."
              return
