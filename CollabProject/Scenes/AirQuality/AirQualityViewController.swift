@@ -96,7 +96,7 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
             self?.fetchButtonTapped()
         }), for: .touchUpInside)
         
-        fetchButton.setTitle("Fetch Air Quality", for: .normal)
+        fetchButton.setTitle("Get Air Quality", for: .normal)
     }
     
     // MARK: - Action Methods

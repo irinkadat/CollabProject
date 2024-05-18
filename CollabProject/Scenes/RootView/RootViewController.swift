@@ -37,7 +37,7 @@ class RootViewController: UIViewController {
         populationVC.tabBarItem = UITabBarItem(title: "Population", image: UIImage(systemName: "person.2"), tag: 4)
         
         tabBarController.tabBar.barTintColor = UIColor(red: 58/255, green: 137/255, blue: 255/255, alpha: 1.0)
-        tabBarController.tabBar.tintColor = .systemBlue
+        tabBarController.tabBar.tintColor = UIColor(named: "buttonColor")
         
         addChild(tabBarController)
         view.addSubview(tabBarController.view)

@@ -25,7 +25,7 @@ class SpecieViewModel {
     }
     var onSpeciesFetched: (() -> Void)?
     var onError: ((String) -> Void)?
-
+    
     //MARK: Functions
     func fetchCityID(cityName: String) {
         let urlString = "https://api.inaturalist.org/v1/places/autocomplete?q=\(cityName)"
@@ -43,7 +43,7 @@ class SpecieViewModel {
             }
         }
     }
-
+    
     private func fetchSpecies(for cityID: Int) {
         let urlString = "https://api.inaturalist.org/v1/observations/species_counts?place_id=\(cityID)"
         NetworkService().getData(urlString: urlString) { [weak self] (result: Result<Species, Error>) in

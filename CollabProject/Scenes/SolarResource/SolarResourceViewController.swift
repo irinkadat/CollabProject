@@ -28,19 +28,18 @@ class SolarResourceViewController: UIViewController {
     private var viewModel = SolarResourceViewModel()
     
     //MARK: - LifeCycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundColor")
         setupUi()
-        //button.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
         button.addAction(UIAction(handler: { [weak self] _ in
             self?.fetchData()
         }), for: .touchUpInside)
     }
     
     //MARK: - UI configuration
-
+    
     private func setupUi() {
         
         CustomComponents.configureTextField(textField: latTextField, placeholder: "Enter Latitude")
@@ -48,7 +47,7 @@ class SolarResourceViewController: UIViewController {
         CustomComponents.configureButton(button: button)
         CustomComponents.configureLabel(titleLabel, textSize: 44)
         titleLabel.text = "Solar Data"
-
+        
         CustomComponents.configureLabel(avgDniLabel)
         CustomComponents.configureLabel(avgGhiLabel)
         CustomComponents.configureLabel(avgTiltLabel)
@@ -64,6 +63,12 @@ class SolarResourceViewController: UIViewController {
         view.addSubview(avgTiltLabel)
         view.addSubview(avgGhiLabel)
         view.addSubview(errorLabel)
+        
+        setConstraint()
+        
+    }
+    
+    private func setConstraint() {
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
         latTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
         lonTextField.topAnchor.constraint(equalTo: latTextField.bottomAnchor, constant: 20).isActive = true
@@ -81,14 +86,10 @@ class SolarResourceViewController: UIViewController {
         avgGhiLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         avgTiltLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
-
-
-        
     }
     
     //MARK: - Networking function
-
+    
     private func fetchData() {
         guard let latText = latTextField.text, let lonText = lonTextField.text,
               let lat = Double(latText), let lon = Double(lonText) else {
@@ -104,7 +105,7 @@ class SolarResourceViewController: UIViewController {
     }
     
     //MARK: - Updating UI
-
+    
     private func updateUI() {
         if let solarResource = viewModel.solarResource {
             avgDniLabel.text = "Average DNI: \(solarResource.avgDNI.annual)"

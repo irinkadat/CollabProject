@@ -42,7 +42,7 @@ struct DefaultPhoto: Codable {
     let url: String
     let attribution: String
     let squareURL, mediumURL: String
-
+    
     enum CodingKeys: String, CodingKey {
         case url, attribution
         case squareURL = "square_url"

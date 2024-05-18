@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
- 
+
 extension UIImageView {
     func setImage(with urlString: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
         contentMode = mode

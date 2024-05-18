@@ -1,6 +1,7 @@
 import UIKit
 
 class PopulationViewController: UIViewController {
+    
     // MARK: - Properties
     
     private let countryTextField = UITextField()

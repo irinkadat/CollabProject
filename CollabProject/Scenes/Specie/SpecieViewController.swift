@@ -45,7 +45,7 @@ class SpecieViewController: UIViewController {
     private func setupUi() {
         CustomComponents.configureTextField(textField: cityTextField, placeholder: "Enter City")
         CustomComponents.configureButton(button: button)
-        button.setTitle("Fetch Species", for: .normal)
+        button.setTitle("Get Species", for: .normal)
         CustomComponents.configureLabel(titleLabel, textSize: 44)
         titleLabel.text = "Species Data"
         CustomComponents.configureLabel(speciesName, textSize: 15)
@@ -97,32 +97,32 @@ class SpecieViewController: UIViewController {
     }
     
     private func bindViewModel() {
-         viewModel.onSpeciesFetched = { [weak self] in
-             DispatchQueue.main.async {
-                 self?.updateUI()
-             }
-         }
+        viewModel.onSpeciesFetched = { [weak self] in
+            DispatchQueue.main.async {
+                self?.updateUI()
+            }
+        }
         viewModel.onError = { [weak self] errorMessage in
             DispatchQueue.main.async {
                 self?.errorLabel.text = errorMessage
             }
         }
-     }
-
-     private func updateUI() {
-         if let species = viewModel.species.first {
-             speciesName.text = species.taxon.name
-             speciesAncestry.text = species.taxon.defaultPhoto.attribution
-             speciesWiki.text = species.taxon.wikipediaURL
-             imageView.setImage(with: species.taxon.defaultPhoto.mediumURL)
-         }
-     }
-
+    }
+    
+    private func updateUI() {
+        if let species = viewModel.species.first {
+            speciesName.text = species.taxon.name
+            speciesAncestry.text = species.taxon.defaultPhoto.attribution
+            speciesWiki.text = species.taxon.wikipediaURL
+            imageView.setImage(with: species.taxon.defaultPhoto.mediumURL)
+        }
+    }
+    
     private func fetchData() {
-         guard let cityName = cityTextField.text, !cityName.isEmpty else {
-             errorLabel.text = "Please enter a city name."
-             return
-         }
-         viewModel.fetchCityID(cityName: cityTextField.text ?? "Tbilisi")
-     }
+        guard let cityName = cityTextField.text, !cityName.isEmpty else {
+            errorLabel.text = "Please enter a city name."
+            return
+        }
+        viewModel.fetchCityID(cityName: cityTextField.text ?? "Tbilisi")
+    }
 }

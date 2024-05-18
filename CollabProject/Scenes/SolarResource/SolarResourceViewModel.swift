@@ -59,7 +59,7 @@ class SolarResourceViewModel {
             completion()
         }
     }
-  
+    
 }
 
 extension SolarResourceViewModel: SolarResourceViewControllerDelegate {
