@@ -45,6 +45,7 @@ class SpecieViewController: UIViewController {
     private func setupUi() {
         CustomComponents.configureTextField(textField: cityTextField, placeholder: "Enter City")
         CustomComponents.configureButton(button: button)
+        button.setTitle("Fetch Species", for: .normal)
         CustomComponents.configureLabel(titleLabel, textSize: 44)
         titleLabel.text = "Species Data"
         CustomComponents.configureLabel(speciesName, textSize: 15)

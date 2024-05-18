@@ -48,7 +48,6 @@ class CustomComponents {
         button.heightAnchor.constraint(equalToConstant: 55).isActive = true
         button.backgroundColor = UIColor(named: "buttonColor")
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Fetch Air Quality", for: .normal)
         button.layer.cornerRadius = 10
         button.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 18, weight: .bold)
     }
