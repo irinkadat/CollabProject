@@ -1,7 +1,14 @@
 import Foundation
 
+// MARK: - PopulationViewModel
+
 class PopulationViewModel {
+    
+    // MARK: - Properties
+    
     private let baseURL = "https://d6wn6bmjj722w.population.io:443/1.0/population/"
+    
+    // MARK: - Networking
     
     func fetchPopulation(for country: String, completion: @escaping (Result<(today: Int, tomorrow: Int), Error>) -> Void) {
         let url = URL(string: "\(baseURL)\(country)/today-and-tomorrow/")!

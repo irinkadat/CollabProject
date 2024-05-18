@@ -1,12 +1,16 @@
 import UIKit
 
 class PopulationViewController: UIViewController {
+    // MARK: - Properties
+    
     private let countryTextField = UITextField()
     private let todayPopulationLabel = UILabel()
     private let tomorrowPopulationLabel = UILabel()
     private let fetchButton = UIButton(type: .system)
     
     private let viewModel = PopulationViewModel()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +20,8 @@ class PopulationViewController: UIViewController {
         setupConstraints()
         addActions()
     }
+    
+    // MARK: - Setup UI
     
     private func setupUI() {
         let titleLabel = UILabel()
@@ -44,12 +50,16 @@ class PopulationViewController: UIViewController {
         ])
     }
     
+    // MARK: - Add Views
+    
     private func addViews() {
         view.addSubview(countryTextField)
         view.addSubview(todayPopulationLabel)
         view.addSubview(tomorrowPopulationLabel)
         view.addSubview(fetchButton)
     }
+    
+    // MARK: - Setup Constraints
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
@@ -73,11 +83,15 @@ class PopulationViewController: UIViewController {
         ])
     }
     
+    // MARK: - Actions
+    
     private func addActions() {
         fetchButton.addAction(UIAction { [weak self] _ in
             self?.fetchPopulation()
         }, for: .touchUpInside)
     }
+    
+    // MARK: - Networking
     
     private func fetchPopulation() {
         guard let country = countryTextField.text, !country.isEmpty else {
@@ -97,6 +111,8 @@ class PopulationViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Error Handling
     
     private func displayError(_ message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
