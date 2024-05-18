@@ -14,6 +14,8 @@ protocol SolarResourceViewControllerDelegate: AnyObject {
 
 class SolarResourceViewController: UIViewController {
     
+    //MARK: - Properties
+    
     var button = UIButton()
     var titleLabel = UILabel()
     var latTextField = UITextField()
@@ -25,98 +27,69 @@ class SolarResourceViewController: UIViewController {
     
     private var viewModel = SolarResourceViewModel()
     
+    //MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "backgroundColor")
         setupUi()
-        button.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
+        //button.addTarget(self, action: #selector(fetchData), for: .touchUpInside)
+        button.addAction(UIAction(handler: { [weak self] _ in
+            self?.fetchData()
+        }), for: .touchUpInside)
     }
     
+    //MARK: - UI configuration
+
     private func setupUi() {
-        latTextField = configureTextField(placeholder: "Enter Latitude", topAnchor: view.topAnchor, constant: 200)
-        lonTextField = configureTextField(placeholder: "Enter Longitude", topAnchor: latTextField.bottomAnchor, constant: 20)
         
-        configureButton()
-        configureLabel(titleLabel, topAnchor: view.topAnchor, constant: 100, text: "Solar Data", textSize: 44)
-        titleLabel.textColor = .white
-        configureLabel(avgDniLabel, topAnchor: button.bottomAnchor, constant: 20)
-        configureLabel(avgGhiLabel, topAnchor: avgDniLabel.bottomAnchor, constant: 20)
-        configureLabel(avgTiltLabel, topAnchor: avgGhiLabel.bottomAnchor, constant: 20)
-        configureLabel(errorLabel, topAnchor: avgTiltLabel.bottomAnchor, constant: 20)
+        CustomComponents.configureTextField(textField: latTextField, placeholder: "Enter Latitude")
+        CustomComponents.configureTextField(textField: lonTextField, placeholder: "Enter Longitude")
+        CustomComponents.configureButton(button: button)
+        CustomComponents.configureLabel(titleLabel, textSize: 44)
+        titleLabel.text = "Solar Data"
+
+        CustomComponents.configureLabel(avgDniLabel)
+        CustomComponents.configureLabel(avgGhiLabel)
+        CustomComponents.configureLabel(avgTiltLabel)
+        CustomComponents.configureLabel(errorLabel)
         
         errorLabel.textColor = .red
-    }
-    
-    private func configureButton() {
-        view.addSubview(button)
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.topAnchor.constraint(equalTo: lonTextField.bottomAnchor, constant: 50).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 55).isActive = true
-        
-        button.backgroundColor = UIColor(named: "buttonColor")
         button.setTitle("Get Solar Data", for: .normal)
-        button.layer.cornerRadius = 10
+        view.addSubview(latTextField)
+        view.addSubview(lonTextField)
+        view.addSubview(titleLabel)
+        view.addSubview(button)
+        view.addSubview(avgDniLabel)
+        view.addSubview(avgTiltLabel)
+        view.addSubview(avgGhiLabel)
+        view.addSubview(errorLabel)
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        latTextField.topAnchor.constraint(equalTo: view.topAnchor, constant: 200).isActive = true
+        lonTextField.topAnchor.constraint(equalTo: latTextField.bottomAnchor, constant: 20).isActive = true
+        button.topAnchor.constraint(equalTo: lonTextField.bottomAnchor, constant: 50).isActive = true
+        avgDniLabel.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 20).isActive = true
+        avgGhiLabel.topAnchor.constraint(equalTo: avgDniLabel.bottomAnchor, constant: 20).isActive = true
+        avgTiltLabel.topAnchor.constraint(equalTo: avgGhiLabel.bottomAnchor, constant: 20).isActive = true
+        errorLabel.topAnchor.constraint(equalTo: avgTiltLabel.bottomAnchor, constant: 20).isActive = true
         
-        button.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: 14)
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        latTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        lonTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        avgDniLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        avgGhiLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        avgTiltLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        errorLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+
+
         
-        button.layer.shadowColor = UIColor(named: "buttonColor")?.cgColor
-        button.layer.shadowOpacity = 0.32
-        button.layer.shadowOffset = CGSize(width: 0, height: 3.77)
-        button.layer.shadowRadius = 11.32 / 2.0
-            
     }
     
-    private func configureTextField(placeholder: String, topAnchor: NSLayoutYAxisAnchor, constant: CGFloat) -> UITextField {
-        let textField = UITextField()
-        
-        view.addSubview(textField)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        textField.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        textField.widthAnchor.constraint(equalToConstant: 350).isActive = true
-        textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        let placeholderAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.lightGray,
-            .font: UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
-        ]
-        textField.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
-        
-        textField.backgroundColor = UIColor(named: "inputTextFieldColor")
-        textField.textColor = .lightGray
-        textField.layer.cornerRadius = 10
-        textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = UIColor.systemGray.cgColor
-        
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textField.frame.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-        
-        textField.font = UIFont(name: "FiraGO-Medium", size: 14)
-        
-        return textField
-    }
-    
-    
-    private func configureLabel(_ label: UILabel, topAnchor: NSLayoutYAxisAnchor, constant: CGFloat, text: String = "", textSize: Int = 14) {
-        view.addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
-        label.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        label.text = text
-        label.textColor = .white
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.font = UIFont(name: "FiraGO-Medium", size: CGFloat(textSize))
-    }
-    
-    @objc private func fetchData() {
+    //MARK: - Networking function
+
+    private func fetchData() {
         guard let latText = latTextField.text, let lonText = lonTextField.text,
               let lat = Double(latText), let lon = Double(lonText) else {
             errorLabel.text = "Please enter valid coordinates."
@@ -130,6 +103,8 @@ class SolarResourceViewController: UIViewController {
         }
     }
     
+    //MARK: - Updating UI
+
     private func updateUI() {
         if let solarResource = viewModel.solarResource {
             avgDniLabel.text = "Average DNI: \(solarResource.avgDNI.annual)"
@@ -144,6 +119,8 @@ class SolarResourceViewController: UIViewController {
         }
     }
 }
+
+//MARK: - Extensions
 
 extension SolarResourceViewController: SolarResourceViewControllerDelegate {
     func didRequestSolarData(lat: Double, lon: Double) {
