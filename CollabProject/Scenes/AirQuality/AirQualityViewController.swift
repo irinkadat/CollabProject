@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AirQualityViewController: UIViewController {
-    private var viewModel = AirQualityViewModel()
+class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
     
+    private var viewModel = AirQualityViewModel()
     private let cityLabel = UILabel()
     private let stateLabel = UILabel()
     private let countryLabel = UILabel()
@@ -17,14 +17,13 @@ class AirQualityViewController: UIViewController {
     private let errorLabel = UILabel()
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
-    
-    
     private let latTextField = UITextField()
     private let lonTextField = UITextField()
     private let fetchButton = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         configureHeader()
         setupUI()
     }
@@ -140,19 +139,12 @@ class AirQualityViewController: UIViewController {
             return
         }
         
-        if viewModel.validateCoordinates(latitude: lat, longitude: lon) {
-            fetchAirQuality(lat: lat, lon: lon)
-        } else {
-            showInvalidCoordinatesAlert()
-        }
-    }
-    
-    private func fetchAirQuality(lat: Double, lon: Double) {
-        viewModel.fetchAirQuality(lat: lat, lon: lon) { [weak self] result in
+        viewModel.validateAndFetchAirQuality(lat: lat, lon: lon) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let airQuality):
-                    self?.updateUI(with: airQuality)
+                    self?.viewModel.airQuality = airQuality
+                    self?.updateUI()
                 case .failure(let error):
                     self?.showError(error.localizedDescription)
                 }
@@ -160,12 +152,12 @@ class AirQualityViewController: UIViewController {
         }
     }
     
-    private func updateUI(with airQuality: AirQuality) {
-        cityLabel.text = "City: \(airQuality.city)"
-        stateLabel.text = "State: \(airQuality.state)"
-        countryLabel.text = "Country: \(airQuality.country)"
-        aqiLabel.text = "AQI: \(airQuality.aqi)"
-        errorLabel.text = ""
+    private func updateUI() {
+        cityLabel.text = viewModel.cityLabelText
+        stateLabel.text = viewModel.stateLabelText
+        countryLabel.text = viewModel.countryLabelText
+        aqiLabel.text = viewModel.aqiLabelText
+        errorLabel.text = viewModel.errorLabelText
     }
     
     private func showError(_ message: String) {
