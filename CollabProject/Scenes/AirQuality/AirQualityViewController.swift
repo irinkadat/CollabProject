@@ -9,6 +9,8 @@ import UIKit
 
 class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
     
+    // MARK: - Properties
+    
     private var viewModel = AirQualityViewModel()
     private let cityLabel = UILabel()
     private let stateLabel = UILabel()
@@ -21,12 +23,16 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
     private let lonTextField = UITextField()
     private let fetchButton = UIButton(type: .system)
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
         configureHeader()
         setupUI()
     }
+    
+    // MARK: - UI Setup
     
     private func setupUI() {
         view.backgroundColor = UIColor(named: "backgroundColor")
@@ -64,8 +70,27 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         configureButton()
     }
     
+    private func configureHeader() {
+        configureLabel(titleLabel, textSize: 44)
+        titleLabel.text = "Air Quality"
+        view.addSubview(titleLabel)
+        
+        configureLabel(descriptionLabel, textSize: 16)
+        descriptionLabel.text = "Air quality refers to the condition of the air within our surroundings. It is determined by various factors such as the presence of pollutants, pollutants' concentration, and weather conditions."
+        view.addSubview(descriptionLabel)
+        
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        ])
+    }
     
-    private func configureTextField(textField: UITextField , placeholder: String) {
+    // MARK: - Configuration Methods
+    
+    private func configureTextField(textField: UITextField, placeholder: String) {
         textField.widthAnchor.constraint(equalToConstant: 350).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
@@ -86,25 +111,6 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         textField.leftViewMode = .always
         
         textField.font = UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
-        
-    }
-    
-    private func configureHeader() {
-        configureLabel(titleLabel, textSize: 44)
-        titleLabel.text = "Air Quality"
-        view.addSubview(titleLabel)
-        
-        configureLabel(descriptionLabel, textSize: 16)
-        descriptionLabel.text = "Air quality refers to the condition of the air within our surroundings. It is determined by various factors such as the presence of pollutants, pollutants' concentration, and weather conditions."
-        view.addSubview(descriptionLabel)
-        
-        NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-            descriptionLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-        ])
     }
     
     private func configureLabel(_ label: UILabel, textSize: Int = 14) {
@@ -113,13 +119,6 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont(name: "FiraGO-Medium", size: CGFloat(textSize)) ?? UIFont.systemFont(ofSize: CGFloat(textSize), weight: .medium)
-    }
-    
-    func showInvalidCoordinatesAlert() {
-        let alert = UIAlertController(title: "Invalid Coordinates", message: "Please enter valid latitude and longitude values.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true, completion: nil)
     }
     
     private func configureButton() {
@@ -131,6 +130,8 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         fetchButton.layer.cornerRadius = 10
         fetchButton.titleLabel?.font = UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 18, weight: .bold)
     }
+    
+    // MARK: - Action Methods
     
     func fetchButtonTapped() {
         guard let latText = latTextField.text, let lat = Double(latText),
@@ -152,6 +153,8 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         }
     }
     
+    // MARK: - UI Update Methods
+    
     private func updateUI() {
         cityLabel.text = viewModel.cityLabelText
         stateLabel.text = viewModel.stateLabelText
@@ -167,5 +170,13 @@ class AirQualityViewController: UIViewController, AirQualityViewModelDelegate {
         countryLabel.text = ""
         aqiLabel.text = ""
     }
+    
+    // MARK: - AirQualityViewModelDelegate
+    
+    func showInvalidCoordinatesAlert() {
+        let alert = UIAlertController(title: "Invalid Coordinates", message: "Please enter valid latitude and longitude values.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
 }
-

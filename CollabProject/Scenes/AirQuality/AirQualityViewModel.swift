@@ -13,10 +13,12 @@ protocol AirQualityViewModelDelegate: AnyObject {
 }
 
 class AirQualityViewModel {
+    
+    // MARK: - Properties
+    
     weak var delegate: AirQualityViewModelDelegate?
     var airQuality: AirQuality?
     var errorMessage: String?
-    
     
     var cityLabelText: String? {
         guard let city = airQuality?.city else {
@@ -53,6 +55,7 @@ class AirQualityViewModel {
     private let apiKey = "86b5f167-f3e9-497c-abea-bd58ba291343"
     private let networkService = NetworkService()
     
+    // MARK: - Network Methods
     
     func fetchAirQuality(lat: Double, lon: Double, completion: @escaping (Result<AirQuality, Error>) -> Void) {
         guard validateCoordinates(latitude: lat, longitude: lon) else {
@@ -80,6 +83,8 @@ class AirQualityViewModel {
             delegate?.showInvalidCoordinatesAlert()
         }
     }
+    
+    // MARK: - Validation Methods
     
     func validateCoordinates(latitude: Double?, longitude: Double?) -> Bool {
         guard let latitude = latitude, let longitude = longitude else {
