@@ -6,3 +6,40 @@
 //
 
 import Foundation
+import NetworkServicePackage
+
+class AirQualityViewModel {
+    var airQuality: AirQuality?
+    var errorMessage: String?
+    
+    private let apiKey = "86b5f167-f3e9-497c-abea-bd58ba291343"
+    private let networkService = NetworkService()
+    
+    func fetchAirQuality(lat: Double, lon: Double, completion: @escaping (Result<AirQuality, Error>) -> Void) {
+        guard validateCoordinates(latitude: lat, longitude: lon) else {
+            let error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid coordinates"])
+            completion(.failure(error))
+            return
+        }
+        
+        let urlString = "https://api.airvisual.com/v2/nearest_city?lat=\(lat)&lon=\(lon)&key=\(apiKey)"
+        
+        networkService.getData(urlString: urlString) { (result: Result<AirQuality, Error>) in
+            switch result {
+            case .success(let airQuality):
+                completion(.success(airQuality))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func validateCoordinates(latitude: Double?, longitude: Double?) -> Bool {
+        guard let latitude = latitude, let longitude = longitude else {
+            return false
+        }
+        
+        return (latitude >= -90 && latitude <= 90) && (longitude >= -180 && longitude <= 180) && (latitude != 0 && longitude != 0)
+    }
+    
+}
