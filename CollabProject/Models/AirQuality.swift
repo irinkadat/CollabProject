@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Model
+
 struct AirQuality: Decodable {
     let city: String
     let state: String
