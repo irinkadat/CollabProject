@@ -1,8 +1,14 @@
-//
-//  PopulationData.swift
-//  CollabProject
-//
-//  Created by Irinka Datoshvili on 17.05.24.
-//
+struct PopulationResponse: Codable {
+    let totalPopulation: [Population]
+    
+    enum CodingKeys: String, CodingKey {
+        case totalPopulation = "total_population"
+    }
+}
 
-import Foundation
+struct Population: Codable {
+    let date: String
+    let population: Int
+}
+
+
