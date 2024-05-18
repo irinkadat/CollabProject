@@ -24,16 +24,28 @@ struct ResultForSpecies: Decodable {
 }
 
 struct Taxon: Decodable {
-    let isActive: Bool
     let name: String
-    let ancestry: String
     let extinct: Bool
     let defaultPhoto: DefaultPhoto
     let atlasID: Int?
     let wikipediaURL: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case name, extinct
+        case defaultPhoto = "default_photo"
+        case atlasID = "atlas_id"
+        case wikipediaURL = "wikipedia_url"
+    }
 }
 
-struct DefaultPhoto: Decodable {
+struct DefaultPhoto: Codable {
     let url: String
+    let attribution: String
     let squareURL, mediumURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case url, attribution
+        case squareURL = "square_url"
+        case mediumURL = "medium_url"
+    }
 }
