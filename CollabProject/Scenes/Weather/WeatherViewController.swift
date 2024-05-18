@@ -163,7 +163,7 @@ class WeatherViewController: UIViewController {
     
     private func makeLabel(text: String) -> UILabel {
         let label = UILabel()
-        label.textColor = .label
+        label.textColor = .white
         label.font = UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
         label.text = text
         return label
@@ -171,7 +171,7 @@ class WeatherViewController: UIViewController {
     
     private func makeContentLabel(text: String) -> UILabel {
         let label = UILabel()
-        label.textColor = .label
+        label.textColor = .white
         label.font = UIFont(name: "FiraGO-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14, weight: .medium)
         label.text = text
         return label
