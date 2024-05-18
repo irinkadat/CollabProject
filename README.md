@@ -13,7 +13,7 @@ This page provides information on air quality for a specific city based on input
 - Input city coordinates latitude and longitude (e.g 37.7749, -122.4194; 41.716667, 44.783333)  to get specific city's air quality data.
 
 ### 2. Weather Page
-This page offers weather forecasts based on the city name. It also provides an option to find coordinates by city name.
+This page provides weather forecasts based on specific latitude and longitude coordinates, which offers the possibility to find weather forecasts by coordinates of a specific city.
 
 - **API Documentation:** [OpenWeatherMap 5 Day / 3 Hour Forecast API](https://openweathermap.org/forecast5)
 - **Example API Call:** https://api.openweathermap.org/data/2.5/forecast?lat={LAT}&lon={LON}&appid={API_KEY}
