@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F2162852BF8D6B3008B5E06 /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F2162842BF8D6B3008B5E06 /* CustomComponents.swift */; };
 		8CAB4F762BF73B5F0095874F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F752BF73B5F0095874F /* AppDelegate.swift */; };
 		8CAB4F782BF73B5F0095874F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */; };
 		8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB4F7E2BF73B610095874F /* Assets.xcassets */; };
@@ -29,9 +30,11 @@
 		8CD35A612BF7884300E9D7E4 /* Species.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A602BF7884300E9D7E4 /* Species.swift */; };
 		8CD35A632BF7886000E9D7E4 /* SolarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A622BF7886000E9D7E4 /* SolarData.swift */; };
 		8CD35A652BF7886F00E9D7E4 /* PopulationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD35A642BF7886F00E9D7E4 /* PopulationData.swift */; };
+		A9E33BA32BF7A3E3004F9CA4 /* FiraGO-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F2162842BF8D6B3008B5E06 /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
 		8CAB4F722BF73B5F0095874F /* CollabProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollabProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB4F752BF73B5F0095874F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAB4F772BF73B5F0095874F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +58,7 @@
 		8CD35A602BF7884300E9D7E4 /* Species.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Species.swift; sourceTree = "<group>"; };
 		8CD35A622BF7886000E9D7E4 /* SolarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarData.swift; sourceTree = "<group>"; };
 		8CD35A642BF7886F00E9D7E4 /* PopulationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopulationData.swift; sourceTree = "<group>"; };
+		A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FiraGO-Medium.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F2162832BF8D650008B5E06 /* CustomDesign */ = {
+			isa = PBXGroup;
+			children = (
+				6F2162842BF8D6B3008B5E06 /* CustomComponents.swift */,
+			);
+			path = CustomDesign;
+			sourceTree = "<group>";
+		};
 		8CAB4F692BF73B5F0095874F = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +100,7 @@
 		8CAB4F742BF73B5F0095874F /* CollabProject */ = {
 			isa = PBXGroup;
 			children = (
+				6F2162832BF8D650008B5E06 /* CustomDesign */,
 				8CAB4FB32BF7429E0095874F /* Extentions */,
 				8CAB4F8D2BF73BF20095874F /* Models */,
 				8CAB4F8C2BF73BE10095874F /* Scenes */,
@@ -119,6 +132,7 @@
 		8CAB4F8B2BF73BB50095874F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A9E33BA22BF7A3E3004F9CA4 /* FiraGO-Medium.ttf */,
 				8CAB4F7E2BF73B610095874F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -276,6 +290,7 @@
 			files = (
 				8CAB4F7F2BF73B610095874F /* Assets.xcassets in Resources */,
 				8CAB4F822BF73B610095874F /* Base in Resources */,
+				A9E33BA32BF7A3E3004F9CA4 /* FiraGO-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +315,7 @@
 				8CAB4FA72BF73F040095874F /* AirQualityViewModel.swift in Sources */,
 				8CAB4F952BF73C7B0095874F /* RootViewController.swift in Sources */,
 				8CAB4FAF2BF740190095874F /* PopulationViewModel.swift in Sources */,
+				6F2162852BF8D6B3008B5E06 /* CustomComponents.swift in Sources */,
 				8CAB4F782BF73B5F0095874F /* SceneDelegate.swift in Sources */,
 				8CAB4F9B2BF73E230095874F /* SolarResourceViewController.swift in Sources */,
 				8CAB4FA32BF73E740095874F /* WeatherViewController.swift in Sources */,

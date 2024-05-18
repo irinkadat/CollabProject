@@ -19,5 +19,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>FiraGO-Medium.ttf</string>
+	</array>
 </dict>
 </plist>
